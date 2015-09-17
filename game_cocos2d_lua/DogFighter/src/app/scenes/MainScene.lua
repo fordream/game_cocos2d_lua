@@ -8,6 +8,16 @@ function MainScene:ctor()
             UILabelType = 2, text = "Hello, World", size = 64})
         :align(display.CENTER, display.cx, display.cy)
         :addTo(self)
+        
+    self:loadLayers()
+end
+
+function MainScene:loadLayers()
+	local MainLayer = require("src.app.scenes.MainLayer")
+	self.mainLayer = MainLayer.new()
+	self.mainLayer:setAnchorPoint(cc.p(0.5, 0.5))
+	self.mainLayer:setPosition(cc.p(V.w_2, V.h_2))
+	self.mainLayer:addTo(self, 0)
 end
 
 function MainScene:onEnter()
